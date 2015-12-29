@@ -4,7 +4,7 @@
 using namespace std;
 
 const int size = 3;
-const int nVangrancy = 1;
+const int nVangrancy = 2;
 int k;
 
 
@@ -62,20 +62,20 @@ double vangrancy(int id, vector<vector<double>> matrix){
 //    srand(time(NULL));
     double sum = 0;
     double p = (double)(rand() % 10 + 1) / k;
-    cout << p << endl;
+    cout << p << '\t' << x << endl;
 
     while (i < size)
         if ((sum <= p) && (p < matrix[newId][i] + sum)){
             newId = i;
             i = 0;
             x += matrix[newId][size];
+            cout << newId << '\t' << p << '\t' << x << endl;
             p = (double)(rand() % 10 + 1) / k;
-            cout << newId << '\t' << p << endl;
         }
         else
             sum += matrix[newId][i++];
 
-    cout << p << endl;
+    cout << p << '\t' << x << endl;
     return x;
 //    }
 }
