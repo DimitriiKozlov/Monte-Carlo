@@ -3,8 +3,8 @@
 
 using namespace std;
 
-const int size = 3;
-const int nVangrancy = 2;
+const int size = 2;
+const int nVangrancy = 10000;
 int k;
 
 
@@ -58,24 +58,25 @@ double vangrancy(int id, vector<vector<double>> matrix){
     int newId = id;
 
     int i = 0;
-    cout << endl;
+//    cout << endl;
 //    srand(time(NULL));
     double sum = 0;
-    double p = (double)(rand() % 10 + 1) / k;
-    cout << p << '\t' << x << endl;
+    double p = (double)(rand() % 10000 + 1) / 10000;
+//    cout << p << '\t' << x << endl;
 
     while (i < size)
-        if ((sum <= p) && (p < matrix[newId][i] + sum)){
+        if ((sum <= p) && (p < matrix[i][newId] + sum)){
             newId = i;
-            i = 0;
             x += matrix[newId][size];
-            cout << newId << '\t' << p << '\t' << x << endl;
-            p = (double)(rand() % 10 + 1) / k;
+            i = 0;
+            sum = 0;
+//            cout << newId << '\t' << p << '\t' << x << endl;
+            p = (double)(rand() % 10000 + 1) / 10000;
         }
         else
-            sum += matrix[newId][i++];
+            sum += matrix[i++][newId];
 
-    cout << p << '\t' << x << endl;
+//    cout << p << '\t' << x << endl;
     return x;
 //    }
 }
@@ -84,7 +85,7 @@ double vangrancy(int id, vector<vector<double>> matrix){
 int main(){
     vector<int> x = vector<int>(size, 0);
 
-//    srand(time(NULL));
+    srand((unsigned int) time(NULL));
     for (int i = 0; i < size; i++){
         x[i] = rand() % 10;
         cout << x[i] << ' ';
