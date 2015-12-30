@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
 
 using namespace std;
 
 const int matrixSize = 5;
 const int maxXValue = 10;
 const int maxElemMatrixValue = 10;
-const int nVangrancy = 100000;
+const int nVangrancy = 1000000;
 int k;
 
 
@@ -160,7 +161,15 @@ int main(){
     printXInConsole(x);
     printMatrixInConsole(matrix);
 
+    auto begin = std::chrono::high_resolution_clock::now();
+
     xMC = getXVectorMC(matrix);
+
+    auto end = chrono::high_resolution_clock::now();
+
     printXMCInConsole(xMC);
+
+    double time = chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count() / 1000000000.0;
+    cout << endl << endl << "Worked " <<  time << " second's" << endl;
 
 }
