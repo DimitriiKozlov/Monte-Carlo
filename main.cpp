@@ -7,7 +7,7 @@ using namespace std;
 const int matrixSize = 5;
 const int maxXValue = 10;
 const int maxElemMatrixValue = 10;
-const int nVangrancy = 1000000;
+const int nVangrancy = 100000;
 int k;
 
 
