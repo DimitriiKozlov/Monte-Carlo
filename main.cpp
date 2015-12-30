@@ -80,17 +80,12 @@ vector<int> generateXVector(){
 double vangrancy(int id, vector<vector<double>> matrix){
     double x = 0;
 
-//    while (true)/============/
-
     x += matrix[id][matrixSize];
     int newId = id;
 
     int i = 0;
-//    cout << endl;
-//    srand(time(NULL));
     double sum = 0;
     double p = (double)(rand() % 10000 + 1) / 10000;
-//    cout << p << '\t' << x << endl;
 
     while (i < matrixSize)
         if ((sum <= p) && (p < matrix[i][newId] + sum)){
@@ -98,15 +93,12 @@ double vangrancy(int id, vector<vector<double>> matrix){
             x += matrix[newId][matrixSize];
             i = 0;
             sum = 0;
-//            cout << newId << '\t' << p << '\t' << x << endl;
             p = (double)(rand() % 10000 + 1) / 10000;
         }
         else
             sum += matrix[i++][newId];
 
-//    cout << p << '\t' << x << endl;
     return x;
-//    }
 }
 
 
