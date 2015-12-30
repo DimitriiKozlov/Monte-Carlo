@@ -119,11 +119,13 @@ void printMatrixInConsole(vector<vector<double>> matrix){
     }
 }
 
+
 void printXInConsole(vector<int> x){
     cout << endl;
     for (int i = 0; i < matrixSize; i++)
         cout << 'x' << i << " = " << x[i] << endl;
 }
+
 
 void printXMCInConsole(vector<double> x){
     cout << endl << endl << "By Monte-Carlo Method:" << endl;
